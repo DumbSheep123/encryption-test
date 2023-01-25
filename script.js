@@ -8,4 +8,4 @@ const plaintext = CryptoJS.AES.decrypt(ciphertext, key, {
     padding: CryptoJS.pad.NoPadding
 });
 
-console.log(plaintext.toString(CryptoJS.enc.Utf8));
+export var joe = plaintext.toString(CryptoJS.enc.Utf8)
