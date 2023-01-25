@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        import joe from './script.js'
+        const CryptoJS = require("crypto-js");
+
+        const key = CryptoJS.enc.Hex.parse("0123456789abcdef0123456789abcdef");
+        const ciphertext = CryptoJS.enc.Hex.parse("6bc1bee22e409f96e93d7e117393172a");
+
+        const plaintext = CryptoJS.AES.decrypt(ciphertext, key, {
+            mode: CryptoJS.mode.ECB,
+            padding: CryptoJS.pad.NoPadding
+        });
+
+        console.log(plaintext.toString(CryptoJS.enc.Utf8));
+
+        const joe = plaintext.toString(CryptoJS.enc.Utf8)
 
         alert(joe)
+
     </script>
 </body>
+
 </html>
